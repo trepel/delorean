@@ -124,9 +124,9 @@ func (c *createProdsecManifestCmd) run(ctx context.Context) (string, error) {
 		date := time.Now()
 		manifestBranchName = fmt.Sprintf("%s-master-manifest-update-%s", c.version.OlmType(), date.Format("2006-01-02"))
 		manifestFileName = fmt.Sprintf("%s-master-manifest.txt", c.version.NameByOlmType())
-		branchToCreateManifestFrom = "master"
+		branchToCreateManifestFrom = "manitest-generator-improvements"
 	case compareCommand:
-		branchToCreateManifestFrom = "master"
+		branchToCreateManifestFrom = "manitest-generator-improvements"
 	default:
 		manifestBranchName = c.version.PrepareProdsecManifestBranchName()
 		branchToCreateManifestFrom = c.version.ReleaseBranchName()
