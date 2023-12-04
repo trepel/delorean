@@ -101,7 +101,7 @@ provision_rosa_cluster() {
         fi
     fi
 
-    args+=(--version 4.12.40)
+    args+=(--version 4.13.10)
 
     if [[ $STS_ENABLED == 'true' ]]; then
         args+=(--sts --mode auto)
