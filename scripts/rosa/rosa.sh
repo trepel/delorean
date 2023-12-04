@@ -100,6 +100,9 @@ provision_rosa_cluster() {
           args+=(--machine-cidr=$MACHINE_CIDR)
         fi
     fi
+
+    args+=(--version 4.12.40)
+
     if [[ $STS_ENABLED == 'true' ]]; then
         args+=(--sts --mode auto)
         rosa create account-roles --mode auto -y
@@ -107,6 +110,7 @@ provision_rosa_cluster() {
     else
         args+=(--non-sts)
     fi
+
     args+=(-y)
     rosa create cluster "${args[@]}"
     rosa describe cluster --cluster $CLUSTER_NAME
